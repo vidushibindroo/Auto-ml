@@ -1,6 +1,7 @@
 import numpy as np
 import progressbar
 
+
 bar_widgets = [
     'Training: ', progressbar.Percentage(), ' ', progressbar.Bar(marker="-", left="[", right="]"),
     ' ', progressbar.ETA()
@@ -13,7 +14,7 @@ class sigmoid_func():
     def gradient(self, x):
         return self.__call__(x) * (1 - self.__call__(x))
 
-
+    
 def ema(running, new, gamma=.9):
 ##ema is exponential moving average##
     return gamma * running + (1. - gamma) * new
