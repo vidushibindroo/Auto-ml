@@ -1,5 +1,3 @@
-
-
 # used in LDA
 def data_to_dict(X, Y):
     data_dict = {}
