@@ -4,7 +4,7 @@ import csv
 import math
 from Utils_NB import *
 
-def separate(dataset):
+def separate_by_class(dataset):
     """Separate training set by class value"""
     separated = {}
     for i in range(len(dataset)):
@@ -24,7 +24,7 @@ def model(dataset):
 
 
 
-def model(dataset):
+def model_by_class(dataset):
     """finding the mean and standard deviation of each feature in dataset by their class"""
     separated = separate(dataset)
     class_models = {}
