@@ -26,7 +26,7 @@ def model(dataset):
 
 def model_by_class(dataset):
     """finding the mean and standard deviation of each feature in dataset by their class"""
-    separated = separate(dataset)
+    separated = separate_by_class(dataset)
     class_models = {}
     for (classValue, instances) in separated.iteritems():
         class_models[classValue] = model(instances)
