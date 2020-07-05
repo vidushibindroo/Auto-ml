@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from utils import sigmoid_func, mean_squared_error, accuracy_score, bar_widget, to_categorical
+import utils
 import progressbar
 
 
@@ -51,7 +51,7 @@ class XGBoostRegressionTree(DecisionTree):
 
 class log_loss():
     def __init__(self):
-        sigmoid = sigmoid_func()
+        sigmoid = utils.sigmoid_func()
         self.log_func = sigmoid
         self.log_grad = sigmoid.gradient
 
@@ -88,7 +88,7 @@ class XGBoost(object):
         self.min_impurity = min_impurity              
         self.max_depth = max_depth                  
 
-        self.bar = progressbar.ProgressBar(widgets=bar_widgets)
+        self.bar = progressbar.ProgressBar(widgets=utils.bar_widgets)
         
         self.loss = log_loss()
 
@@ -103,7 +103,7 @@ class XGBoost(object):
             self.trees.append(tree)
 
     def fit(self, X, y):
-        y = to_categorical(y)
+        y = utils.to_categorical(y)
 
         y_pred = np.zeros(np.shape(y))
         for i in self.bar(range(self.n_estimators)):

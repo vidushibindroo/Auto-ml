@@ -122,18 +122,18 @@ class ConvNet(NeuralNet):
         grad_y = self.dloss_funcs[self.loss](y_pred, y_train)
 
         ##FC-7##
-        dh3, dW3, db3 = l.fc_backward(grad_y, score_cache)
+        dh3, dW3, db3 = layers.fc_backward(grad_y, score_cache)
         dh3 = self.backward_nonlin(dh3, nl_cache3)
 
-        dh2, dW2, db2 = l.fc_backward(dh3, h3_cache)
+        dh2, dW2, db2 = layers.fc_backward(dh3, h3_cache)
         dh2 = dh2.ravel().reshape(hpool.shape)
 
         ##Pool-1##
-        dpool = l.maxpool_backward(dh2, hpool_cache)
+        dpool = layers.maxpool_backward(dh2, hpool_cache)
 
         ##Conv-1##
         dh1 = self.backward_nonlin(dpool, nl_cache1)
-        dX, dW1, db1 = l.conv_backward(dh1, h1_cache)
+        dX, dW1, db1 = layers.conv_backward(dh1, h1_cache)
 
         grad = dict(
             W1=dW1, W2=dW2, W3=dW3, b1=db1, b2=db2, b3=db3

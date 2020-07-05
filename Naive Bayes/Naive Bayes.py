@@ -2,7 +2,7 @@ import numpy as np
 from random import randrange
 import csv
 import math
-from Utils_NB import *
+import Utils_NB as utils
 
 def separate_by_class(dataset):
     """Separate training set by class value"""
@@ -17,8 +17,7 @@ def separate_by_class(dataset):
 
 def model(dataset):
     """Find the mean and standard deviation of each feature in dataset"""
-    models = [(mean(attribute), stdev(attribute)) for attribute in zip(*dataset)]
-    #Remove last entry because it is class value.
+    models = [(utils.mean(attribute), utils.stdev(attribute)) for attribute in zip(*dataset)]
     models.pop() 
     return models
 
