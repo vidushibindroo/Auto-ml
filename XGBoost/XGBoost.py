@@ -69,6 +69,15 @@ class log_loss():
         return p * (1 - p)
 
 
+xgb_dic = {
+    'ml_task':["classification"],
+    'counter': [0],
+    'n_estimators': [100, 200, 300, 400, 500],
+    'learning_rate': [0.0001, 0.001, 0.01, 0.1],
+    'min_samples_split': [1, 2, 3],
+    'max_depth': [2, 3, 4, 5, 6, 7],
+    'min_impurity': [1e-7]
+}
 
 class XGBoost(object):
     def __init__(self, n_estimators=200, learning_rate=0.001, min_samples_split=2,
