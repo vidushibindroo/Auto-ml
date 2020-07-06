@@ -1,15 +1,13 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import utils
+from XGBoost.utils import sigmoid_func
 import progressbar
-
-
+from XGBoost.DTreeXGB import decision_tree
 
 eps = 1e-8
 
-
-class XGBoostRegressionTree(DecisionTree):
+class XGBoostRegressionTree(decision_tree):
     
     '''Call from class decision tree, after importing it from decision_tree_functions in the automl project 
     as DecisionTree because we're using a decision tree ensemble (The decision tree function needs to be modified
@@ -51,7 +49,7 @@ class XGBoostRegressionTree(DecisionTree):
 
 class log_loss():
     def __init__(self):
-        sigmoid = utils.sigmoid_func()
+        sigmoid = XGBoost.utils.sigmoid_func()
         self.log_func = sigmoid
         self.log_grad = sigmoid.gradient
 
@@ -70,8 +68,6 @@ class log_loss():
 
 
 xgb_dic = {
-    'ml_task':["classification"],
-    'counter': [0],
     'n_estimators': [100, 200, 300, 400, 500],
     'learning_rate': [0.0001, 0.001, 0.01, 0.1],
     'min_samples_split': [1, 2, 3],
@@ -88,7 +84,7 @@ class XGBoost(object):
         self.min_impurity = min_impurity              
         self.max_depth = max_depth                  
 
-        self.bar = progressbar.ProgressBar(widgets=utils.bar_widgets)
+        self.bar = progressbar.ProgressBar(widgets=XGBoost.utils.bar_widgets)
         
         self.loss = log_loss()
 
@@ -103,7 +99,7 @@ class XGBoost(object):
             self.trees.append(tree)
 
     def fit(self, X, y):
-        y = utils.to_categorical(y)
+        y = XGBoost.utils.to_categorical(y)
 
         y_pred = np.zeros(np.shape(y))
         for i in self.bar(range(self.n_estimators)):
