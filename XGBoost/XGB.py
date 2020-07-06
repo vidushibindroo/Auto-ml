@@ -75,7 +75,7 @@ xgb_dic = {
     'min_impurity': [1e-7]
 }
 
-class XGBoost(object):
+class xgboost_func(object):
     def __init__(self, n_estimators=200, learning_rate=0.001, min_samples_split=2,
                  min_impurity=1e-7, max_depth=2):
         self.n_estimators = n_estimators            
