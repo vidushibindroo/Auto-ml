@@ -1,4 +1,7 @@
 import numpy as np
+import math
+import sys
+
 eps = 1e-8
 
 def l2_reg(W, lam=1e-3):

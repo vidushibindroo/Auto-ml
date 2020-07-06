@@ -1,4 +1,7 @@
 import numpy as np
+import math
+import sys
+
 eps = 1e-8
 
 """Defining layers for a fully connected conv 3×3 neural net"""

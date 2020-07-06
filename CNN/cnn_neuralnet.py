@@ -1,6 +1,8 @@
 import numpy as np
-import cnn_loss as loss_func
-import cnn_layers as layers
+import math
+import sys
+import CNN.cnn_loss as loss_func
+import CNN.cnn_layers as layers
 
 
 def softmax(X):
