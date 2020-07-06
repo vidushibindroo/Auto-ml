@@ -40,12 +40,12 @@ class relu:
 
 class lrelu:
 ##defining activation function leaky relu, can be used in case to solve the problem of dying relu##    
-    def forward(X, a=1e-3):
+    def forward(self, X, a=1e-3):
         out = np.maximum(a * X, X)
         cache = (X, a)
         return out, cache
     
-    def backward(dout, cache):
+    def backward(self, dout, cache):
         X, a = cache
         dX = dout.copy()
         dX[X < 0] *= a
@@ -81,13 +81,13 @@ class tanh:
 
 class dropout:
 ##defining dropout layer##
-    def forward(X, p_dropout):
+    def forward(self, X, p_dropout):
         u = np.random.binomial(1, p_dropout, size=X.shape) / p_dropout
         out = X * u
         cache = u
         return out, cache
     
-    def backward(dout, cache):
+    def backward(self, dout, cache):
         dX = dout * cache
         return dX
 
