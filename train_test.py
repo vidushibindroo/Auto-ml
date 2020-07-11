@@ -4,8 +4,6 @@ import sys
 
 """ A pythonic train test split using numpy """
 
-test_size=0.2
-
 def shuffle_data(X, y, seed=None):
     """ Random shuffle of the samples in X and y """
     if seed:

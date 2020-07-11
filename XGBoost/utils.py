@@ -42,3 +42,8 @@ def divide(X, feature_i, threshold):
     X_2 = np.array([sample for sample in X if not split_func(sample)])
 
     return np.array([X_1, X_2])
+
+def normalize(X, axis=-1, order=2):
+    l2 = np.atleast_1d(np.linalg.norm(X, order, axis))
+    l2[l2 == 0] = 1
+    return X / np.expand_dims(l2, axis)
