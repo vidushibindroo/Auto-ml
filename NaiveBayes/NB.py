@@ -30,13 +30,13 @@ class naive_bayes():
     def classification(self, sample):
         posteriors = []
         for i, c in enumerate(self.classes):
-            posterior = self._calculate_prior(c)
+            posterior = self.prior(c)
             for feature_value, params in zip(sample, self.parameters[i]):
-                likelihood = self._calculate_likelihood(params["mean"], params["var"], feature_value)
+                likelihood = self.likelihood(params["mean"], params["var"], feature_value)
                 posterior *= likelihood
             posteriors.append(posterior)
         return self.classes[np.argmax(posteriors)]
 
     def predict(self, X):
-        y_pred = [self._classify(sample) for sample in X]
+        y_pred = [self.classification(sample) for sample in X]
         return y_pred
