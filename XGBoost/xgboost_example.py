@@ -10,7 +10,7 @@ from XGBoost.XGB import xgboost_func
 
 def main():
     
-    print ("-- XGBoost --")
+    print ("--- now running XGBoost ---")
 
     data = datasets.load_iris()
     X = data.data
