@@ -97,7 +97,6 @@ max_depth: int
 ```
 import numpy as np
 from sklearn import datasets
-import matplotlib.pyplot as plt
 import progressbar
 from train_test import train_test_split
 from XGBoost.utils import to_categorical, normalize
