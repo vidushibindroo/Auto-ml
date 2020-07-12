@@ -58,7 +58,7 @@ The classify function returns a class with the largest posterior probability.
 from sklearn import datasets
 import numpy as np
 from train_test import train_test_split
-from XGBoost.utils import normalize, accuracy_score
+from NaiveBayes.utils import normalize, accuracy_score
 from NaiveBayes.NB import naive_bayes
 
 def main():
