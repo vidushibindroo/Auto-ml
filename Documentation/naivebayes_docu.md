@@ -32,15 +32,15 @@ It contains likelihood, prior and classification functions other than fit and pr
 
 ***prior*** calculates the prior of class c (samples where class == c / total number of samples), taking the same as its parameter.
 
-***classification*** is the main function. It classifies using Bayes Rule P(Y|X) = P(X|Y)*P(Y)/P(X) or Posterior = Likelihood * Prior / Scaling Factor
+***classification*** is the main function. It classifies using Bayes Rule P(Y|y) = P(X|y)*P(y)/P(X) or Posterior = Likelihood * Prior / Scaling Factor
 ```
-P(Y|X) - The posterior is the probability that sample x is of class y given the
+P(y|X) - The posterior is the probability that sample x is of class y given the
         feature values of x being distributed according to distribution of y and the prior.
         
-P(X|Y) - Likelihood of data X given class distribution Y.
+P(X|y) - Likelihood of data X given class distribution Y.
         Gaussian distribution (given by likelihood)
         
-P(Y)   - Prior (given by prior)
+P(y)   - Prior (given by prior)
 
 P(X)   - Scales the posterior to make it a proper probability distribution.
         This term is ignored in this implementation since it doesn't affect
@@ -48,6 +48,7 @@ P(X)   - Scales the posterior to make it a proper probability distribution.
         Classifies the sample as the class that results in the largest P(Y|X) (posterior)
 ```
 We used a naive assumption (independence): P(X1,X2,X3|y) = P(X1|y)*P(X2|y)*P(X3|y)
+
 Posterior is product of prior and likelihoods (ignoring scaling factor).
 The classify function returns a class with the largest posterior probability.
 
