@@ -46,7 +46,7 @@ P(X)   - Scales the posterior to make it a proper probability distribution.
         which class distribution the sample is most likely to belong to.
         Classifies the sample as the class that results in the largest P(Y|X) (posterior)
 
-We used a naive assumption (independence): P(x1,x2,x3|Y) = P(x1|Y)*P(x2|Y)*P(x3|Y)
+We used a naive assumption (independence): P(X1,X2,X3|y) = P(X1|y)*P(X2|y)*P(X3|y)
 Posterior is product of prior and likelihoods (ignoring scaling factor).
 The classify function returns a class with the largest posterior probability.
 
