@@ -3,27 +3,12 @@ from random import randrange
 import csv
 import math
 
+def accuracy_score(y_true, y_pred):
+    accuracy = np.sum(y_true == y_pred, axis=0) / len(y_true)
+    return accuracy
 
-def mean(numbers):
-    """Returns the mean of numbers"""
-    return np.mean(numbers)
-
-
-def stdev(numbers):
-    """Returns the std_deviation of numbers"""
-    return np.std(numbers)
-
-
-def sigmoid(z):
-    """Returns the sigmoid number"""
-    return 1.0 / (1.0 + math.exp(-z))
-
-
-def accuracy_metric(actual, predicted):
-    """Calculate accuracy percentage"""
-    correct = 0
-    for i in range(len(actual)):
-        if actual[i] == predicted[i]:
-            correct += 1
-    return correct / float(len(actual)) * 100.0
+def normalize(X, axis=-1, order=2):
+    l2 = np.atleast_1d(np.linalg.norm(X, order, axis))
+    l2[l2 == 0] = 1
+    return X / np.expand_dims(l2, axis)
 

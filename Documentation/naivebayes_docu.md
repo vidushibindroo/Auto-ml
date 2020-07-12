@@ -20,7 +20,7 @@ NaiveBayes has 2 modules:
 
 #### utils
 
-It contains mean, stdev, sigmoid and accuracy_metric, that will return the mean of numbers, standard deviation of numbers, sigmoid number and accuracy percentage, respectively.
+It contains normalize and accuracy_score.
 
 
 #### NB

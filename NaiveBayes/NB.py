@@ -3,7 +3,7 @@ from random import randrange
 import csv
 import math
 import sys
-import NaiveBayes.utils
+from NaiveBayes.utils import normalize, accuracy_score
 
 eps = 1e-4
 class naive_bayes():
