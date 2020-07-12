@@ -3,7 +3,7 @@
 A Naive Bayes classifier is a probabilistic machine learning model that’s used for classification task. The crux of the classifier is based on the Bayes theorem.
 
 
-Steps to run the algorithm:
+#### Steps to run the algorithm:
 
 - Load the data as y (the target variable to be predicted) and the rest as X (training data with multiple features).
 - Split data using the train_test_split function imported from train_test.py
@@ -13,17 +13,17 @@ Steps to run the algorithm:
 
 NaiveBayes has 2 modules:
 ```
-- utils
-- NB
+utils
+NB
 ```
 
 
-#### utils
+### utils
 
 It contains normalize and accuracy_score.
 
 
-#### NB
+### NB
 
 It contains likelihood, prior and classification functions other than fit and predict functions to form the Gaussian Naive Bayes classifier.
 
@@ -32,18 +32,21 @@ It contains likelihood, prior and classification functions other than fit and pr
 ***prior*** calculates the prior of class c (samples where class == c / total number of samples), taking the same as its parameter.
 
 ***classification*** is the main function. It classifies using Bayes Rule P(Y|X) = P(X|Y)*P(Y)/P(X) or Posterior = Likelihood * Prior / Scaling Factor
-
+```
 P(Y|X) - The posterior is the probability that sample x is of class y given the
         feature values of x being distributed according to distribution of y and the prior.
+        
 P(X|Y) - Likelihood of data X given class distribution Y.
-        Gaussian distribution (given by _calculate_likelihood)
-P(Y)   - Prior (given by _calculate_prior)
+        Gaussian distribution (given by likelihood)
+        
+P(Y)   - Prior (given by prior)
+
 P(X)   - Scales the posterior to make it a proper probability distribution.
         This term is ignored in this implementation since it doesn't affect
         which class distribution the sample is most likely to belong to.
         Classifies the sample as the class that results in the largest P(Y|X) (posterior)
-
-We used a naive assumption (independence): P(x1,x2,x3|Y) = P(x1|Y)*P(x2|Y)*P(x3|Y)
+```
+We used a naive assumption (independence): P(X1,X2,X3|y) = P(X1|y)*P(X2|y)*P(X3|y)
 Posterior is product of prior and likelihoods (ignoring scaling factor).
 The classify function returns a class with the largest posterior probability.
 
