@@ -51,7 +51,7 @@ from train_test import train_test_split
 
 def main():
     
-    print ("--- now running XGBoost ---")
+    print ("--- now running the model ---")
 
     data = datasets.load_iris()
     X = data.data
