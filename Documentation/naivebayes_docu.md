@@ -35,9 +35,12 @@ It contains likelihood, prior and classification functions other than fit and pr
 
 P(Y|X) - The posterior is the probability that sample x is of class y given the
         feature values of x being distributed according to distribution of y and the prior.
+        
 P(X|Y) - Likelihood of data X given class distribution Y.
         Gaussian distribution (given by likelihood)
+        
 P(Y)   - Prior (given by prior)
+
 P(X)   - Scales the posterior to make it a proper probability distribution.
         This term is ignored in this implementation since it doesn't affect
         which class distribution the sample is most likely to belong to.
