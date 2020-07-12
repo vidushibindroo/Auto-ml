@@ -4,7 +4,7 @@ The train_test_split function is for splitting a single dataset for two differen
 
 **This is a pythonic implementation of train_test_split using only numpy library.**
 
-#### Steps to be followed to run this module:
+### Steps to be followed to run this module:
 
 - Determine dataset to be worked on.
 - Load the data as y (the target variable to be predicted) and the rest as X (training data with multiple features).
@@ -18,8 +18,9 @@ The module train_test contains two functions:
 - train_test_split
 
 ***shuffle_data*** shuffles samples of X and y randomly.
-```
+
 It takes as parameters:
+```
 X, y:   
     The first parameter is the dataset you're selecting to use.
 seed:   
@@ -29,8 +30,9 @@ seed:
 ```
 
 ***train_test_split*** is the main function that splits the dataset into train set and test sets.
-```
+
 It takes as parameters:
+```
 X, y:   
     Same as mentioned above. 
 test_size:
