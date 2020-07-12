@@ -1,6 +1,6 @@
 # Splitting datasets with train_test_split
 
-The train_test_split function is for splitting a single dataset for two different purposes: training and testing. The testing subset is for building your model. The testing subset is for using the model on unknown data to evaluate the performance of the model. With this function, you don't need to divide the dataset manually.
+The train_test_split function is for splitting a single dataset for two different purposes: training and testing. The training subset is for building your model. The testing subset is for using the model on unknown data to evaluate the performance of the model. With this function, you don't need to divide the dataset manually.
 
 **This is a pythonic implementation of train_test_split using only numpy library.**
 
