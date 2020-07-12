@@ -13,9 +13,9 @@ Steps to run the algorithm:
 
 XGBoost has 3 modules:
 ```
-- utils
-- DTreeXGB
-- XGB
+utils
+DTreeXGB
+XGB
 ```
 
 
@@ -33,13 +33,17 @@ It contains decision_node and decision_tree.
 It takes as parameters:
 feature_i: int
     Feature index which we want to use as the threshold measure.
+    
 threshold: float
         The value that we will compare feature values at feature_i against to
         determine the prediction.
+        
 value: float
-        The class prediction if classification tree, or float value if regression tree.
+        The class prediction if classification tree.
+        
 true_branch: decision_node
         Next decision node for samples where features value met the threshold.
+        
 false_branch: decision_node
         Next decision node for samples where features value did not meet the threshold.
 
@@ -48,10 +52,13 @@ false_branch: decision_node
 It takes as parameters:
 min_samples_split: int
     The minimum number of samples needed to make a split when building a tree.
+    
 min_impurity: float
     The minimum impurity required to split the tree further.
+    
 max_depth: int
     The maximum depth of a tree.
+    
 loss: function
     Loss function that is used for Gradient Boosting models to calculate impurity.
 
@@ -68,13 +75,17 @@ It inherits from decision_tree class defined in DTreeXGB. It takes as parameters
 It takes as parameters:
 n_estimators: int
     The number of classification trees that are used.
+    
 learning_rate: float
     The step length that will be taken when following the negative gradient during
     training.
+    
 min_samples_split: int
     The minimum number of samples needed to make a split when building a tree.
+    
 min_impurity: float
     The minimum impurity required to split the tree further. 
+    
 max_depth: int
     The maximum depth of a tree.
 
