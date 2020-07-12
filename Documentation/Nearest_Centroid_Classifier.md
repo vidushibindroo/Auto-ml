@@ -29,12 +29,12 @@ return np.array(temp)
 The ratio parameter determines how much of the data should be used for 
 training. For example, 0.9 means that the training portion should contain
 90% of the data. You do not have to randomize the rows. Make sure that 
-there is no overlap. 
+there is no overlap.* 
 
 ### compute_centroid(data):
 
 *Returns a 1D array (a vector), representing the centroid of the data
-    set. 
+    set.*
  
 ### experiment(ww_train, rw_train, ww_test, rw_test): 
 
