@@ -5,6 +5,7 @@ A Naive Bayes classifier is a probabilistic machine learning model that’s used
 
 #### Steps to run the algorithm:
 
+- Determine dataset to be worked on.
 - Load the data as y (the target variable to be predicted) and the rest as X (training data with multiple features).
 - Split data using the train_test_split function imported from train_test.py
 - Run the algorithm on the data.
