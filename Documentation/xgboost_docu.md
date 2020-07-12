@@ -3,7 +3,7 @@
 XGBoost stands for “Extreme Gradient Boosting”, where the term “Gradient Boosting” originates from the paper Greedy Function Approximation: A Gradient Boosting Machine, by Friedman. eXtreme Gradient Boosting or XGBoost is a library of gradient boosting algorithms optimized for modern data science problems and tools. It leverages the techniques mentioned with boosting and comes wrapped in an easy to use library. Some of the major benefits of XGBoost are that its highly scalable/parallelizable, quick to execute, and typically out performs other algorithms.
 
 
-Steps to run the algorithm:
+#### Steps to run the algorithm:
 
 - Load the data as y (the target variable to be predicted) and the rest as X (training data with multiple features).
 - Split data using the train_test_split function imported from train_test.py
@@ -19,18 +19,19 @@ XGB
 ```
 
 
-#### utils
+### utils
 
 It contains sigmoid_func, bar_widgets, to_categorical, mean_squared_error, accuracy_score and divide.
 
 
-#### DTreeXGB
+### DTreeXGB
 
 It contains decision_node and decision_tree.
 
 ***decision_node*** is just the class that represents a decision node or leaf in the decision tree.
 
 It takes as parameters:
+```
 feature_i: int
     Feature index which we want to use as the threshold measure.
     
@@ -46,10 +47,11 @@ true_branch: decision_node
         
 false_branch: decision_node
         Next decision node for samples where features value did not meet the threshold.
-
+```
 ***decision_tree*** is the superclass of the classification tree of XGBoost.
 
 It takes as parameters:
+```
 min_samples_split: int
     The minimum number of samples needed to make a split when building a tree.
     
@@ -61,9 +63,9 @@ max_depth: int
     
 loss: function
     Loss function that is used for Gradient Boosting models to calculate impurity.
+```
 
-
-#### XGB
+### XGB
 
 It contains xgboost_tree, log_loss and xgboost_func.
 
@@ -73,6 +75,7 @@ It inherits from decision_tree class defined in DTreeXGB. It takes as parameters
 ***xgboost_func*** is the main function of the XGBoost classification model.
 
 It takes as parameters:
+```
 n_estimators: int
     The number of classification trees that are used.
     
@@ -88,7 +91,7 @@ min_impurity: float
     
 max_depth: int
     The maximum depth of a tree.
-
+```
 
 ## Example code
 ```
