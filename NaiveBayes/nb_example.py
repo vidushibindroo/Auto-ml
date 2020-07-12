@@ -1,4 +1,3 @@
-from __future__ import division, print_function
 from sklearn import datasets
 import numpy as np
 from train_test import train_test_split

@@ -3,8 +3,7 @@ import math
 import sys
 from XGBoost.utils import divide
 
-class DecisionNode():
-    """ Class that represents a decision node or leaf in the decision tree """
+class decision_node():
     def __init__(self, feature_i=None, threshold=None,
                  value=None, true_branch=None, false_branch=None):
         self.feature_i = feature_i         
@@ -14,15 +13,6 @@ class DecisionNode():
         self.false_branch = false_branch    
 
 class decision_tree(object):
-    """
-    Main decision tree class from which xgboost inherits.
-    Parameters:
-    int min_samples_split : The minimum number of samples needed to make a split when
-                            building a tree.
-    float min_impurity : The minimum impurity required to split the tree further.
-    int max_depth : The maximum depth of a tree.
-    loss() : Loss function that is used for Gradient Boosting models to calculate impurity.
-    """
     def __init__(self, min_samples_split=2, min_impurity=1e-7,
                  max_depth=float("inf"), loss=None):
         self.root = None  
@@ -83,12 +73,12 @@ class decision_tree(object):
         if largest_impurity > self.min_impurity:
             true_branch = self._build_tree(best_sets["leftX"], best_sets["lefty"], current_depth + 1)
             false_branch = self._build_tree(best_sets["rightX"], best_sets["righty"], current_depth + 1)
-            return DecisionNode(feature_i=best_criteria["feature_i"], threshold=best_criteria[
+            return decision_node(feature_i=best_criteria["feature_i"], threshold=best_criteria[
                                 "threshold"], true_branch=true_branch, false_branch=false_branch)
 
         leaf_value = self._leaf_value_calculation(y)
 
-        return DecisionNode(value=leaf_value)
+        return decision_node(value=leaf_value)
 
 
     def predict_value(self, x, tree=None):

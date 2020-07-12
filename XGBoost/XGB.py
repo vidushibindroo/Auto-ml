@@ -7,12 +7,7 @@ from XGBoost.DTreeXGB import decision_tree
 
 eps = 1e-8
 
-class XGBoostRegressionTree(decision_tree):
-    
-    '''Call from class decision tree, after importing it from decision_tree_functions in the automl project 
-    as DecisionTree because we're using a decision tree ensemble (The decision tree function needs to be modified
-    to a class for this to work). Refer: https://xgboost.readthedocs.io/en/latest/tutorials/model.html'''
-  
+class xgboost_tree(decision_tree): 
     def _split(self, y):
         col = int(np.shape(y)[1]/2)
         y, y_pred = y[:, :col], y[:, col:]
@@ -44,7 +39,7 @@ class XGBoostRegressionTree(decision_tree):
     def fit(self, X, y):
         self._impurity_calculation = self._gain_by_taylor
         self._leaf_value_calculation = self._approximate_update
-        super(XGBoostRegressionTree, self).fit(X, y)
+        super(xgboost_tree, self).fit(X, y)
 
 
 class log_loss():
@@ -89,7 +84,7 @@ class xgboost_func(object):
 
         self.trees = []
         for _ in range(n_estimators):
-            tree = XGBoostRegressionTree(
+            tree = xgboost_tree(
                     min_samples_split=self.min_samples_split,
                     min_impurity=min_impurity,
                     max_depth=self.max_depth,
