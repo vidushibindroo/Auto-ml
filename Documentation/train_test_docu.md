@@ -38,7 +38,8 @@ X, y:
     Same as mentioned above. 
 test_size:
     This parameter specifies the size of the testing dataset. There is no default test size and it 
-    needs to be specified while calling the function. It may range from 0.1 to 1.0.
+    needs to be specified while calling the function. It may range from 0.1 to 1.0 but is typically
+    0.2 is considered as a good size (train size would be 0.8 then)
 seed:
     Same as mentioned above.
 ```
