@@ -26,7 +26,8 @@ X, y:
 seed:   
     Seed function is used to save the state of a random function, so that it can generate same 
     random numbers on multiple executions of the code on the same machine or on different machines 
-    (for a specific seed value). Default is set as 0, in which case the function will create random partitions, or you can specify a random state for the operation.
+    (for a specific seed value). Default is set as 0, in which case the function will create random 
+    partitions, or you can specify a random state for the operation.
 ```
 
 ***train_test_split*** is the main function that splits the dataset into train set and test sets.
