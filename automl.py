@@ -2,6 +2,11 @@ import time
 import numpy as np
 import pandas as pd
 from sklearn.metrics import accuracy_score
+from train_test import train_test_split
+from NaiveBayes.utils import normalize, accuracy_score
+from NaiveBayes.NB import naive_bayes
+from XGBoost.utils import to_categorical, normalize, mean_squared_error, accuracy_score
+from XGBoost.XGB import xgboost_func
 
 # import other classes
 
@@ -38,8 +43,6 @@ dtree_dic = {
 #Xgb
 
 xgb_dic = {
-    'ml_task':["classification"],
-    'counter': [0],
     'n_estimators': [100, 200, 300, 400, 500],
     'learning_rate': [0.0001, 0.001, 0.01, 0.1],
     'min_samples_split': [1, 2, 3],
@@ -126,6 +129,14 @@ class AutoML():
         scoreCard.append(['Linear Discriminant Analysis', score, lda_params])
         best_so_far_ = max(best_so_far_, score)
         
+        #############################################################################
+        # Naive Bayes
+
+        clf = naive_bayes()
+        clf.fit(X_train, y_train)
+        y_pred = clf.predict(X_test)
+        score = accuracy_score(y_test, y_pred)
+
         #############################################################################
         
         # logistic Regression
