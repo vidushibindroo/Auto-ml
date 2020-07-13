@@ -50,7 +50,7 @@ P(X)   - Scales the posterior to make it a proper probability distribution.
 We used a naive assumption (independence): P(X1,X2,X3|y) = P(X1|y)*P(X2|y)*P(X3|y)
 
 Posterior is product of prior and likelihoods (ignoring scaling factor).
-The classify function returns a class with the largest posterior probability.
+The classification function returns a class with the largest posterior probability.
 
 ***predict*** function predicts the class labels of the samples in X.
 
