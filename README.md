@@ -21,6 +21,21 @@ pip install pandas
 ```
 # Core Functionality Example
 ??????? //write the code
+</br>
+</br>
+</br>
+### DOCUMENTATION
+
+[Decision Tree](https://github.com/vidushibindroo/Auto-ml/blob/master/Documentation/DecisionTree.md)
+</br>
+[Artificial Neural Network](https://github.com/vidushibindroo/Auto-ml/blob/master/Documentation/ANN.md)
+</br>
+[NaiveBayes](https://github.com/vidushibindroo/Auto-ml/blob/master/Documentation/naivebayes_docu.md)
+</br>
+[Xgboost](https://github.com/vidushibindroo/Auto-ml/blob/master/Documentation/xgboost_docu.md)
+</br>
+[Train_test_split](https://github.com/vidushibindroo/Auto-ml/blob/master/Documentation/train_test_docu.md)
+[Nearest Centroid Classifier](https://github.com/vidushibindroo/Auto-ml/blob/master/Documentation/Nearest_Centroid_Classifier.md)
 
 
 
