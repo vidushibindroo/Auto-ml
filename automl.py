@@ -165,7 +165,7 @@ class AutoML():
         clf=KNN(X_train, X_test, y_train, y_test)
         score=max(accuracy)
         best_so_far_=max(best_so_far_,score)
-        
+        scoreCard.append(['KNN', score, -])
         
         
         
