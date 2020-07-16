@@ -144,6 +144,8 @@ class AutoML():
         clf.fit(X_train, y_train)
         y_pred = clf.predict(X_test)
         score = accuracy_score(y_test, y_pred)
+        scoreCard.append(['Naive Bayes', score, -])
+        best_so_far_ = max(best_so_far_, score)
 
         #############################################################################
         
