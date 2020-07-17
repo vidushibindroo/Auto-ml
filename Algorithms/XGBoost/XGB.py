@@ -1,9 +1,9 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from XGBoost.utils import sigmoid_func, bar_widgets, to_categorical
+from Algorithms.XGBoost.utils import sigmoid_func, bar_widgets, to_categorical
 import progressbar
-from XGBoost.DTreeXGB import decision_tree
+from Algorithms.XGBoost.DTreeXGB import decision_tree
 
 eps = 1e-8
 

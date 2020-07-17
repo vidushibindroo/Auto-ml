@@ -1,7 +1,7 @@
 import numpy as np
 import math
 import sys
-from XGBoost.utils import divide
+from Algorithms.XGBoost.utils import divide
 
 class decision_node():
     def __init__(self, feature_i=None, threshold=None,

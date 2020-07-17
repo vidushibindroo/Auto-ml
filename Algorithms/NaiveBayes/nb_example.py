@@ -1,8 +1,8 @@
 from sklearn import datasets
 import numpy as np
 from train_test import train_test_split
-from NaiveBayes.utils import normalize, accuracy_score
-from NaiveBayes.NB import naive_bayes
+from Algorithms.NaiveBayes.utils import normalize, accuracy_score
+from Algorithms.NaiveBayes.NB import naive_bayes
 
 def main():
 

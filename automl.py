@@ -4,11 +4,12 @@ import pandas as pd
 from train_test import train_test_split
 
 # import other classes
-from NaiveBayes.utils import *
-from NaiveBayes.NB import *
-from XGBoost.utils import *
-from XGBoost.XGB import *
-from XGBoost.DTreeXGB import *
+from Algorthms.NaiveBayes.utils import *
+from Algorithms.NaiveBayes.NB import *
+from Algorithms.XGBoost.utils import *
+from Algorithms.XGBoost.XGB import *
+from Algorithms.XGBoost.DTreeXGB import *
+from Algorithms import *
 import progressbar
 from decision_tree_functions import decision_tree_algorithm, make_predictions, calculate_accuracy
 from helper_functions import generate_data, create_plot, train_test_split

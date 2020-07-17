@@ -2,9 +2,9 @@ import numpy as np
 from sklearn import datasets
 import progressbar
 from train_test import train_test_split
-from XGBoost.utils import to_categorical, normalize
-from XGBoost.utils import mean_squared_error, accuracy_score
-from XGBoost.XGB import xgboost_func
+from Algorithms.XGBoost.utils import to_categorical, normalize
+from Algorithms.XGBoost.utils import mean_squared_error, accuracy_score
+from Algorithms.XGBoost.XGB import xgboost_func
 
 def main():
     
