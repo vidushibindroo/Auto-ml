@@ -36,8 +36,8 @@ class Adaboost():
         self.n_clf = n_clf
 
     def fit(self, X, y):
-        X=X.values
-        y=y.values
+        #X=X.values
+        #y=y.values
         y[y == 0] = -1
         n_samples, n_features = X.shape
 
@@ -91,7 +91,7 @@ class Adaboost():
 
     def predict(self, X):
 
-        clf_preds = [clf.alpha * clf.predict(X.values) for clf in self.clfs]
+        clf_preds = [clf.alpha * clf.predict(X) for clf in self.clfs]
         y_pred = np.sum(clf_preds, axis=0)
         y_pred = np.sign(y_pred)
         y_pred[y_pred==-1]=0
