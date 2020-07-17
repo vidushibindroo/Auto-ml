@@ -98,6 +98,7 @@ class MLP(object):
         # now enter the training loop
         for i in range(epochs):
             sum_errors = 0
+            max_error = 0
 
             # iterate through all the training data
             for j, input in enumerate(inputs):
@@ -116,6 +117,9 @@ class MLP(object):
 
                 # keep track of the MSE for reporting later
                 sum_errors += self._mse(target, output)
+                if(sum_errors>max_error):
+                     max_error=sum_errors
+            return max_error
 
             # Epoch complete, report the training error
             print("Error: {} at epoch {}".format(sum_errors / len(items), i+1))
