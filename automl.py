@@ -2,12 +2,13 @@ import time
 import numpy as np
 import pandas as pd
 from train_test import train_test_split
-from NaiveBayes.utils import normalize, accuracy_score
-from NaiveBayes.NB import naive_bayes
-from XGBoost.utils import to_categorical, normalize, mean_squared_error, accuracy_score
-from XGBoost.XGB import xgboost_func
 
 # import other classes
+from NaiveBayes.utils import *
+from NaiveBayes.NB import *
+from XGBoost.utils import *
+from XGBoost.XGB import *
+from XGB.DTreeXGB import *
 from decision_tree_functions import decision_tree_algorithm, make_predictions, calculate_accuracy
 from helper_functions import generate_data, create_plot, train_test_split
 from Knearestneighbour import KNN,numpy_distance
