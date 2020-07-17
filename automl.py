@@ -122,20 +122,20 @@ class AutoML():
         
         #############################################################################
         # lda 
-        
-        clf = LinearDiscrimentAnalysis(projection_dim=2)
-        clf.fit(X_train, y_train)
-        pred = clf.predict(X_test,y_test)
-        score = accuracy_score(y_test, pred)
-        params = lda_dic
-        #scoreCard.append(['Linear Discriminant Analysis', score, {'projection_dim': 2}])
-        scoreCard.append({
-                        'Algorithm': 'Linear Discriminant Analysis',
-                        'Accuracy Score': score,
-                         'Params':{'projection_dim': 2}
-                         })
-        best_so_far_ = max(best_so_far_, score)
-        del clf
+        if X.shape[1] != 1:
+            clf = LinearDiscrimentAnalysis(projection_dim=2)
+            clf.fit(X_train, y_train)
+            pred = clf.predict(X_test,y_test)
+            score = accuracy_score(y_test, pred)
+            params = lda_dic
+            #scoreCard.append(['Linear Discriminant Analysis', score, {'projection_dim': 2}])
+            scoreCard.append({
+                            'Algorithm': 'Linear Discriminant Analysis',
+                            'Accuracy Score': score,
+                             'Params':{'projection_dim': 2}
+                             })
+            best_so_far_ = max(best_so_far_, score)
+            del clf
 
 
         #############################################################################
