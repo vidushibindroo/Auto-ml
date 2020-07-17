@@ -30,7 +30,9 @@ lda_dic = {
 }
 
 # logistic Regression
-
+lr_dic={'alpha': [0.001,0.005,0.01,0.03,0.05,0.07,0.1],
+        'n_itr':[750,1000,1250,1500,1750,2000],
+        'bias':[0,5,10,15,25,50,75,100]}
 
 
 # dtree
@@ -43,13 +45,7 @@ dtree_dic = {
 }
 
 
-
-
-
-
-
 #Xgb
-
 xgb_dic = {
     'n_estimators': [100, 200, 300, 400, 500],
     'learning_rate': [0.0001, 0.001, 0.01, 0.1],
@@ -59,12 +55,8 @@ xgb_dic = {
 }
 
 
-
-
-
-
-
-
+#adaboost
+adb_dict={'n_clf':[3,5,7,10,12,15,17,20]}
 
 
 class AutoML():
@@ -152,9 +144,8 @@ class AutoML():
         # logistic Regression
         
         
-        
-        
-        
+        rs=random_search(LogisticRegression,lr_dic)
+        rs.fit(x_train,y_train,x_test,y_test)
         scoreCard.append(['Logistic Regression', rs.best_score_, rs.best_params_])
         best_so_far_ = max(best_so_far_, rs.best_score_)
         
@@ -222,8 +213,9 @@ class AutoML():
         
         # Adaboost
         
-        
-        
+        rs=random_search(Adaboost,adb_dict, n_iter = 5)
+        rs.fit(X_train,y_train,X_test, y_test)
+        scoreCard.append(['Adaboost', rs.best_score_, rs.best_params_])
         best_so_far_ = max(best_so_far_, rs.best_score_)
         
         #############################################################################
