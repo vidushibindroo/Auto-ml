@@ -18,6 +18,7 @@ class DecisionStump():
         self.alpha = None
 
     def predict(self, X):
+
         n_samples = X.shape[0]
         X_column = X[:, self.feature_idx]
         predictions = np.ones(n_samples)
@@ -35,7 +36,9 @@ class Adaboost():
         self.n_clf = n_clf
 
     def fit(self, X, y):
-        
+        X=X.values
+        y=y.values
+        y[y == 0] = -1
         n_samples, n_features = X.shape
 
         # Initialize weights to 1/N
@@ -87,14 +90,10 @@ class Adaboost():
             self.clfs.append(clf)
 
     def predict(self, X):
-        clf_preds = [clf.alpha * clf.predict(X) for clf in self.clfs]
+
+        clf_preds = [clf.alpha * clf.predict(X.values) for clf in self.clfs]
         y_pred = np.sum(clf_preds, axis=0)
         y_pred = np.sign(y_pred)
+        y_pred[y_pred==-1]=0
 
         return y_pred
-
-
-x=x.values
-y=y.values
-
-y[y == 0] = -1

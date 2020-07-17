@@ -232,6 +232,15 @@ class AutoML():
         # Neural Networks add unwanted complexity for simpler problems hence added in last
         # ANN
         
+        mlp = MLP(2, [5], 1)
+
+        # train network
+        mlp.train(X_train, y_train, 50, 0.1)
+        score=mlp.train(X_train, y_train, 50, 0.1)
+        
+        
+        scoreCard.append(['ANN',score,'-' ])
+        
         
         #scoreCard.append(['ANN', , ])
         
