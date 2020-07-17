@@ -6,7 +6,7 @@ from numpy.linalg import inv
 from numpy.linalg import pinv
 from numpy.linalg import eigh
 
-from utils import data_to_dict
+from LDA.Utils import data_to_dict
 
 
 
