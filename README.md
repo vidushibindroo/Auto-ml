@@ -34,13 +34,14 @@ pip install pandas
 </br>
 [Xgboost](https://github.com/vidushibindroo/Auto-ml/blob/master/Documentation/xgboost_docu.md)
 </br>
-[Train_test_split](https://github.com/vidushibindroo/Auto-ml/blob/master/Documentation/train_test_docu.md)
-</br>
 [Nearest Centroid Classifier](https://github.com/vidushibindroo/Auto-ml/blob/master/Documentation/Nearest_Centroid_Classifier.md)
 </br>
 [Logistic Regression](https://github.com/vidushibindroo/Auto-ml/blob/master/Documentation/Logisticregression.md)
 </br>
 [Adaboost Classifier](https://github.com/vidushibindroo/Auto-ml/blob/master/Documentation/Adaboost.md)
+</br>
+[Train_test_split](https://github.com/vidushibindroo/Auto-ml/blob/master/Documentation/train_test_docu.md)
+
 
 
 
