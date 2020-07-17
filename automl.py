@@ -19,7 +19,7 @@ from collections import Counter
 import matplotlib.pyplot as plt 
 from random import random
 from Algorithms.ArtificialNeuralNetwork import MLP
-from LDA.LDA import *
+from Algorithms.LDA.LDA import *
 import randomSearch
 from Algorithms.DecisionTree import dtreeRandomSearch
 from Algorithms.Nearestcentroidclassification import *
