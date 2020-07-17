@@ -160,10 +160,9 @@ class AutoML():
         
         # KNN
         
-        accuracy = []
-        K = np.arange(1,35)
+        
         clf=KNN(X_train, X_test, y_train, y_test)
-        score=max(accuracy)
+        score=clf
         best_so_far_=max(best_so_far_,score)
         scoreCard.append(['KNN', score, '-'])
         
