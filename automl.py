@@ -1,7 +1,6 @@
 import time
 import numpy as np
 import pandas as pd
-from sklearn.metrics import accuracy_score
 from train_test import train_test_split
 from NaiveBayes.utils import normalize, accuracy_score
 from NaiveBayes.NB import naive_bayes
@@ -17,6 +16,9 @@ from collections import Counter
 import matplotlib.pyplot as plt 
 from random import random
 from ArtificialNeuralNetwork import MLP
+from LDA.LDA import *
+import randomSearch
+import dtreeRandomSearch
 
 
 
