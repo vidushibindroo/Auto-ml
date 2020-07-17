@@ -9,7 +9,7 @@ import seaborn as sns
 sns.set_style("darkgrid")
 
 
-def train_test_split(df, test_size):
+def dt_train_test_split(df, test_size):
     
     if isinstance(test_size, float):
         test_size = round(test_size * len(df))

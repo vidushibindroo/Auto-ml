@@ -1,8 +1,8 @@
 import time
 import numpy as np
 import pandas as pd
-# from train_test import train_test_split
-from sklearn.model_selection import train_test_split as tts
+from train_test import train_test_split
+#from sklearn.model_selection import train_test_split as tts
 
 
 # import other classes
@@ -14,7 +14,7 @@ from Algorithms.XGBoost.DTreeXGB import *
 from Algorithms import *
 import progressbar
 from Algorithms.DecisionTree.decision_tree_functions import decision_tree_algorithm, make_predictions, calculate_accuracy
-from HelperFunctions.helper_functions import generate_data, create_plot, train_test_split
+from HelperFunctions.helper_functions import generate_data, create_plot, dt_train_test_split
 from Algorithms.Knearestneighbour import KNN,numpy_distance
 from pprint import pprint
 from collections import Counter
@@ -101,7 +101,7 @@ class AutoML():
         X = features
         y = target_variable
         # X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, seed=seed)
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25)
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = test_sz)
         
         num_class = len(np.unique(target_variable))
         
@@ -131,11 +131,11 @@ class AutoML():
         # lda 
         
         clf = LinearDiscrimentAnalysis(projection_dim=2)
-        clf.fit(X_train.values, y_train)
+        clf.fit(X_train, y_train)
         pred = clf.predict(X_test,y_test)
         score = accuracy_score(y_test, pred)
         params = lda_dic
-        scoreCard.append(['Linear Discriminant Analysis', score, lda_params])
+        scoreCard.append(['Linear Discriminant Analysis', score, {'projection_dim': 2}])
         best_so_far_ = max(best_so_far_, score)
         
         #############################################################################
