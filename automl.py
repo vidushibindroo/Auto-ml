@@ -2,10 +2,6 @@ import time
 import numpy as np
 import pandas as pd
 from train_test import train_test_split
-import progressbar
-from collections import Counter
-from pprint import pprint
-from random import random
 #from sklearn.model_selection import train_test_split as tts
 
 
@@ -64,7 +60,7 @@ xgb_dic = {
 
 
 #adaboost
-adb_dict={'n_clf':[3,5,7,10,12,15,17,20]}
+adb_dic={'n_clf':[1,2,3,5,7,10,12,15,17,20, 100]}
 
 
 class AutoML():
@@ -82,8 +78,6 @@ class AutoML():
         self.problem_type = problem_type
         
         self.last_score_card = None
-        
-        
         
         
         
@@ -134,9 +128,16 @@ class AutoML():
         pred = clf.predict(X_test,y_test)
         score = accuracy_score(y_test, pred)
         params = lda_dic
-        scoreCard.append(['Linear Discriminant Analysis', score, {'projection_dim': 2}])
+        #scoreCard.append(['Linear Discriminant Analysis', score, {'projection_dim': 2}])
+        scoreCard.append({
+                        'Algorithm': 'Linear Discriminant Analysis',
+                        'Accuracy Score': score,
+                         'Params':{'projection_dim': 2}
+                         })
         best_so_far_ = max(best_so_far_, score)
-        
+        del clf
+
+
         #############################################################################
         # Naive Bayes
 
@@ -144,7 +145,12 @@ class AutoML():
         clf.fit(X_train, y_train)
         y_pred = clf.predict(X_test)
         score = accuracy_score(y_test, y_pred)
-        scoreCard.append(['Naive Bayes', score, '-'])
+        # scoreCard.append(['Naive Bayes', score, '-'])
+        scoreCard.append({
+                        'Algorithm': 'Naive Bayes',
+                        'Accuracy Score': score,
+                         'Params':'-'
+                         })
         best_so_far_ = max(best_so_far_, score)
 
         #############################################################################
@@ -154,9 +160,16 @@ class AutoML():
         
         rs=random_search(LogisticRegression,lr_dic)
         rs.fit(X_train,y_train,X_test,y_test)
-        scoreCard.append(['Logistic Regression', rs.best_score_, rs.best_params_])
+        #scoreCard.append(['Logistic Regression', rs.best_score_, rs.best_params_])
+        scoreCard.append({
+                        'Algorithm': 'Logistice Regression',
+                        'Accuracy Score': rs.best_score_,
+                         'Params':rs.best_params_
+                         })
         best_so_far_ = max(best_so_far_, rs.best_score_)
-        
+        del rs
+
+
         #############################################################################
         
         # KNN
@@ -166,9 +179,13 @@ class AutoML():
         clf=KNN(X_train, X_test, y_train, y_test)
         score=clf
         best_so_far_=max(best_so_far_,score)
-        scoreCard.append(['KNN', score, '-'])       
-        
-        
+        #scoreCard.append(['KNN', score, '-'])       
+        scoreCard.append({
+                        'Algorithm': 'KNN',
+                        'Accuracy Score': score,
+                         'Params':'-'
+                         })
+        del clf
         
         
         #############################################################################
@@ -200,7 +217,7 @@ class AutoML():
         
         
         if(threshold is not None and best_so_far_ >= threshold):
-            score_card = get_score_card(scoreCard)
+            score_card = self.get_score_card(scoreCard)
             return score_card
             
         
@@ -213,32 +230,43 @@ class AutoML():
         
         # XGB
         
-        rs = random_search(xgboost_func, xgb_dic, n_iter = 5 ) # 50)
+        rs = random_search(xgboost_func, xgb_dic, n_iter = 1 ) # 50)
         rs.fit(X_train, y_train, X_test, y_test) 
-        scoreCard.append(['XGBoost', rs.best_score_, rs.best_params_])
+        #scoreCard.append(['XGBoost', rs.best_score_, rs.best_params_])
+        scoreCard.append({
+                        'Algorithm': 'XGBoost',
+                        'Accuracy Score': rs.best_score_,
+                         'Params':rs.best_params_
+                         })
         best_so_far_ = max(best_so_far_, rs.best_score_)
-        
+        del rs
         #############################################################################
         
         # Adaboost
         
-        rs=random_search(Adaboost,adb_dict, n_iter = 5)
+        rs=random_search(Adaboost,adb_dic, n_iter = 5)
         rs.fit(X_train,y_train,X_test, y_test)
-        scoreCard.append(['Adaboost', rs.best_score_, rs.best_params_])
+        #scoreCard.append(['Adaboost', rs.best_score_, rs.best_params_])
+        scoreCard.append({
+                        'Algorithm': 'Adaboost',
+                        'Accuracy Score': rs.best_score_,
+                         'Params':rs.best_params_
+                         })
         best_so_far_ = max(best_so_far_, rs.best_score_)
-        
+        del rs
+
         #############################################################################
         # Neural Networks add unwanted complexity for simpler problems hence added in last
         # ANN
         
-        mlp = MLP(2, [5], 1)
+        #mlp = MLP(2, [5], 1)
 
         # train network
-        mlp.train(X_train, y_train, 50, 0.1)
-        score=mlp.train(X_train, y_train, 50, 0.1)
+        #mlp.train(X_train, y_train, 50, 0.1)
+        #score=mlp.train(X_train, y_train, 50, 0.1)
         
         
-        scoreCard.append(['ANN',score,'-' ])
+        #scoreCard.append(['ANN',score,'-' ])
         
         
         #scoreCard.append(['ANN', , ])
@@ -246,14 +274,10 @@ class AutoML():
         #############################################################################
         
         
-        score_card = get_score_card(scoreCard)
-        return score_card
+        score_card = self.get_score_card(scoreCard)
+        #return score_card
         
-        
-        
-        
-        
-        
+    
     def get_score_card(self, scoreCard = None, SortBy = 'Accuracy Score'):
         
         """
@@ -262,16 +286,16 @@ class AutoML():
         """
         
         Col = ['Algorithm', 'Accuracy Score', 'Params']
-        
+        score_card = pd.DataFrame(columns = Col)
         if scoreCard is None:
-            score_card = pd.DataFrame(columns = Col)
+            return score_card
         else:
-            score_card = pd.concat([pd.DataFrame(i, columns = Col) for i in scoreCard],
-              ignore_index=True)
+            for i in scoreCard:
+                score_card = score_card.append(i, ignore_index = True)
             score_card.sort_values(by=['Accuracy Score'])
             score_card.reset_index(drop = True)    
         self.last_score_card = score_card
-        return score_card
+        return score_card    
     
     
     
