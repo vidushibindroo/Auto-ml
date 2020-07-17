@@ -1,7 +1,9 @@
 import time
 import numpy as np
 import pandas as pd
-from train_test import train_test_split
+# from train_test import train_test_split
+from sklearn.model_selection import train_test_split as tts
+
 
 # import other classes
 from Algorithms.NaiveBayes.utils import *
@@ -19,7 +21,7 @@ from collections import Counter
 import matplotlib.pyplot as plt 
 from random import random
 from Algorithms.ArtificialNeuralNetwork import MLP
-from LDA.LDA import *
+from Algorithms.LDA.LDA import *
 import randomSearch
 from Algorithms.DecisionTree import dtreeRandomSearch
 from Algorithms.Nearestcentroidclassification import *
@@ -87,7 +89,7 @@ class AutoML():
         
         
         
-    def fit(self, features, target_variable, test_size = 0.25, seed = 2, threshold = None):
+    def fit(self, features, target_variable, test_sz = 0.25, seed = 2, threshold = None):
         
         """
         Runs all classification algorithms turn by turn and Pandas dataframe as score card with classification accuracy
@@ -98,10 +100,10 @@ class AutoML():
         
         X = features
         y = target_variable
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, seed=seed)
+        # X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, seed=seed)
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25)
         
-        
-        num_class = np.unique(target_variable)
+        num_class = len(np.unique(target_variable))
         
         if num_class == 1:
             print("Invalid Data Alert : Only one target class")
