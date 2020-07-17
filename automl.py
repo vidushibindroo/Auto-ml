@@ -12,7 +12,7 @@ from Algorithms.XGBoost.DTreeXGB import *
 from Algorithms import *
 import progressbar
 from Algorithms.DecisionTree.decision_tree_functions import decision_tree_algorithm, make_predictions, calculate_accuracy
-from Algorithms.DecisionTree.helper_functions import generate_data, create_plot, train_test_split
+from HelperFunctions.helper_functions import generate_data, create_plot, train_test_split
 from Algorithms.Knearestneighbour import KNN,numpy_distance
 from pprint import pprint
 from collections import Counter
@@ -22,7 +22,7 @@ from Algorithms.ArtificialNeuralNetwork import MLP
 from LDA.LDA import *
 import randomSearch
 from Algorithms.DecisionTree import dtreeRandomSearch
-from Algorithms import Nearestcentroidclassification
+from Algorithms.Nearestcentroidclassification import *
 
 
 
