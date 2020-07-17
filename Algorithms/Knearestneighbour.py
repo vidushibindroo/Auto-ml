@@ -17,9 +17,10 @@ def numpy_distance(x,y):
 
 ## Empty list which will hold the accuracy values of corresponding K value
 ## K is a list [1,2,.....34]
-accuracy = []
-K = np.arange(1,35)
+
 def KNN(X_train, X_test, y_train, y_test):
+    accuracy = []
+    K = np.arange(1,35)
     for k in K:   ## For each value of k we test the model
         prediction = []   ## Prediction of each test case will be stored in this list
         coorect_count = 0  ## how many correct predictions were made
@@ -44,9 +45,7 @@ def KNN(X_train, X_test, y_train, y_test):
                 coorect_count = coorect_count + 1
         acc = coorect_count/float(len(X_test))  ## accuracy
         accuracy.append(acc)
-        print(max(accuracy))
-    print('max accuracy is :')
-    print(max(accuracy))
+        return max(accuracy)
 
     
 
