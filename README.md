@@ -37,6 +37,11 @@ pip install pandas
 [Train_test_split](https://github.com/vidushibindroo/Auto-ml/blob/master/Documentation/train_test_docu.md)
 </br>
 [Nearest Centroid Classifier](https://github.com/vidushibindroo/Auto-ml/blob/master/Documentation/Nearest_Centroid_Classifier.md)
+</br>
+[Logistic Regression](https://github.com/vidushibindroo/Auto-ml/blob/master/Documentation/Logisticregression.md)
+</br>
+[Adaboost Classifier](https://github.com/vidushibindroo/Auto-ml/blob/master/Documentation/Adaboost.md)
+
 
 
 
