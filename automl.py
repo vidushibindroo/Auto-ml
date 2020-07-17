@@ -8,7 +8,8 @@ from NaiveBayes.utils import *
 from NaiveBayes.NB import *
 from XGBoost.utils import *
 from XGBoost.XGB import *
-from XGB.DTreeXGB import *
+from XGBoost.DTreeXGB import *
+import progressbar
 from decision_tree_functions import decision_tree_algorithm, make_predictions, calculate_accuracy
 from helper_functions import generate_data, create_plot, train_test_split
 from Knearestneighbour import KNN,numpy_distance
