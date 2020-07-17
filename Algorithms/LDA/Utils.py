@@ -1,4 +1,7 @@
 # used in LDA
+
+import numpy as np
+
 def data_to_dict(X, Y):
     data_dict = {}
     for x, y in zip(X, Y):
