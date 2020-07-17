@@ -25,7 +25,7 @@ from Algorithms.DecisionTree import dtreeRandomSearch
 from Algorithms.Nearestcentroidclassification import *
 from Algorithms.LogisticRegression import *
 
-from Algorithms.Adaboost.AdaboostClassifier import *
+#from Algorithms.Adaboost.AdaboostClassifier import *
 
 
 
@@ -152,7 +152,7 @@ class AutoML():
         
         
         rs=random_search(LogisticRegression,lr_dic)
-        rs.fit(x_train,y_train,x_test,y_test)
+        rs.fit(X_train,y_train,X_test,y_test)
         scoreCard.append(['Logistic Regression', rs.best_score_, rs.best_params_])
         best_so_far_ = max(best_so_far_, rs.best_score_)
         
@@ -175,6 +175,9 @@ class AutoML():
         
         # dtree
         
+        df = X
+        df['label'] = y
+        train_df, test_df = dt_train_test_split(df, test_size=20)
         rs = random_search_dtree(decision_tree_algorithm, dtree_dic, n_iter = 8)
         rs.fit(train_df, test_df)
         scoreCard.append(['Decision Tree', rs.best_score_, rs.best_params_])
@@ -190,8 +193,8 @@ class AutoML():
         
         
         
-        scoreCard.append(['Random Forrest', rs.best_score_, rs.best_params_])
-        best_so_far_ = max(best_so_far_, rs.best_score_)
+        #scoreCard.append(['Random Forrest', rs.best_score_, rs.best_params_])
+        #best_so_far_ = max(best_so_far_, rs.best_score_)
         
         #############################################################################
         
@@ -220,10 +223,10 @@ class AutoML():
         
         # Adaboost
         
-        rs=random_search(Adaboost,adb_dict, n_iter = 5)
-        rs.fit(X_train,y_train,X_test, y_test)
-        scoreCard.append(['Adaboost', rs.best_score_, rs.best_params_])
-        best_so_far_ = max(best_so_far_, rs.best_score_)
+        #rs=random_search(Adaboost,adb_dict, n_iter = 5)
+        #rs.fit(X_train,y_train,X_test, y_test)
+        #scoreCard.append(['Adaboost', rs.best_score_, rs.best_params_])
+        #best_so_far_ = max(best_so_far_, rs.best_score_)
         
         #############################################################################
         # Neural Networks add unwanted complexity for simpler problems hence added in last
