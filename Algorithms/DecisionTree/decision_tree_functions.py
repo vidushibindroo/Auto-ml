@@ -133,7 +133,7 @@ def determine_type_of_feature(df):
     n_unique_values_treshold = 15
     for feature in df.columns:
         if feature != "label":
-            unique_values = df[feature].unique()
+            unique_values = np.unique(df[feature])
             example_value = unique_values[0]
 
             if (isinstance(example_value, str)) or (len(unique_values) <= n_unique_values_treshold):

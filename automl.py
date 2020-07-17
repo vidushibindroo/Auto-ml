@@ -15,8 +15,9 @@ from Algorithms.NaiveBayes.NB import *
 from Algorithms.XGBoost.utils import *
 from Algorithms.XGBoost.XGB import *
 from Algorithms.XGBoost.DTreeXGB import *
-from Algorithms.DecisionTree.decision_tree_functions import decision_tree_algorithm, make_predictions, calculate_accuracy
-from HelperFunctions.helper_functions import generate_data, create_plot, dt_train_test_split
+from Algorithms.DecisionTree.decision_tree_functions import decision_tree_algorithm
+from Algorithms.DecisionTree.dtreeRandomSearch import *
+from HelperFunctions.helper_functions import dt_train_test_split
 from Algorithms.Knearestneighbour import KNN,numpy_distance
 from Algorithms.ArtificialNeuralNetwork import MLP
 from Algorithms.LDA.LDA import *
@@ -25,7 +26,7 @@ from Algorithms.DecisionTree import dtreeRandomSearch
 from Algorithms.Nearestcentroidclassification import *
 from Algorithms.LogisticRegression import *
 
-#from Algorithms.Adaboost.AdaboostClassifier import *
+from Algorithms.Adaboost.AdaboostClassifier import *
 
 
 
@@ -160,12 +161,12 @@ class AutoML():
         
         # KNN
         
-        accuracy = []
-        K = np.arange(1,35)
-        clf=KNN(X_train, X_test, y_train, y_test)
-        score=max(accuracy)
-        best_so_far_=max(best_so_far_,score)
-        scoreCard.append(['KNN', score, '-'])
+        #accuracy = []
+        #K = np.arange(1,35)
+        #clf=KNN(X_train, X_test, y_train, y_test)
+        #score=max(accuracy)
+        #best_so_far_=max(best_so_far_,score)
+        #scoreCard.append(['KNN', score, '-'])
         
         
         
@@ -175,14 +176,13 @@ class AutoML():
         
         # dtree
         
-        df = X
-        df['label'] = y
+        df = pd.concat([pd.DataFrame(X), pd.DataFrame(y)], axis = 1)
         train_df, test_df = dt_train_test_split(df, test_size=20)
         rs = random_search_dtree(decision_tree_algorithm, dtree_dic, n_iter = 8)
         rs.fit(train_df, test_df)
         scoreCard.append(['Decision Tree', rs.best_score_, rs.best_params_])
         best_so_far_ = max(best_so_far_, rs.best_score_)
-        
+        del df # delete dataframe to clear ram
         
         
         #############################################################################
@@ -214,7 +214,7 @@ class AutoML():
         
         # XGB
         
-        rs = random_search(xgboost_func, xgb_dic, n_iter = 50)
+        rs = random_search(xgboost_func, xgb_dic, n_iter = 5 ) # 50)
         rs.fit(X_train, y_train, X_test, y_test) 
         scoreCard.append(['XGBoost', rs.best_score_, rs.best_params_])
         best_so_far_ = max(best_so_far_, rs.best_score_)
@@ -223,10 +223,10 @@ class AutoML():
         
         # Adaboost
         
-        #rs=random_search(Adaboost,adb_dict, n_iter = 5)
-        #rs.fit(X_train,y_train,X_test, y_test)
-        #scoreCard.append(['Adaboost', rs.best_score_, rs.best_params_])
-        #best_so_far_ = max(best_so_far_, rs.best_score_)
+        rs=random_search(Adaboost,adb_dict, n_iter = 5)
+        rs.fit(X_train,y_train,X_test, y_test)
+        scoreCard.append(['Adaboost', rs.best_score_, rs.best_params_])
+        best_so_far_ = max(best_so_far_, rs.best_score_)
         
         #############################################################################
         # Neural Networks add unwanted complexity for simpler problems hence added in last
