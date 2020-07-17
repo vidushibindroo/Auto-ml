@@ -55,19 +55,19 @@ def KNN(X_train, X_test, y_train, y_test):
 
 
 
-from sklearn.model_selection import train_test_split
-import pandas as pd
-data = pd.read_csv("Social_Network_Ads.csv") 
-X = data.values   ## making X as the features or the input parameters                      
-X = X[:,2:4]
+# from sklearn.model_selection import train_test_split
+# import pandas as pd
+# data = pd.read_csv("Social_Network_Ads.csv") 
+# X = data.values   ## making X as the features or the input parameters                      
+# X = X[:,2:4]
 
-Y = data.values  ## Making Y to contain the output(label) of the data points or features
-Y = Y[:,-1]
+# Y = data.values  ## Making Y to contain the output(label) of the data points or features
+# Y = Y[:,-1]
 
 ## Splitting the data such that 80% of the data used for training the model and
 ## 20% data is used to test the modes
-X_train, X_test, y_train, y_test = train_test_split( X, Y, test_size = 0.2) 
-knns=KNN(X_train, X_test, y_train, y_test) 
+# X_train, X_test, y_train, y_test = train_test_split( X, Y, test_size = 0.2) 
+# knns=KNN(X_train, X_test, y_train, y_test) 
 
 
 # In[6]:

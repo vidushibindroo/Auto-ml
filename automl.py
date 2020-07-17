@@ -12,7 +12,7 @@ from XGBoost.DTreeXGB import *
 import progressbar
 from decision_tree_functions import decision_tree_algorithm, make_predictions, calculate_accuracy
 from helper_functions import generate_data, create_plot, train_test_split
-# from Knearestneighbour import KNN,numpy_distance
+from Knearestneighbour import KNN,numpy_distance
 from pprint import pprint
 from collections import Counter
 import matplotlib.pyplot as plt 
@@ -157,12 +157,12 @@ class AutoML():
         
         # KNN
         
-        #accuracy = []
-        #K = np.arange(1,35)
-        #clf=KNN(X_train, X_test, y_train, y_test)
-        #score=max(accuracy)
-        #best_so_far_=max(best_so_far_,score)
-        #scoreCard.append(['KNN', score, '-'])
+        accuracy = []
+        K = np.arange(1,35)
+        clf=KNN(X_train, X_test, y_train, y_test)
+        score=max(accuracy)
+        best_so_far_=max(best_so_far_,score)
+        scoreCard.append(['KNN', score, '-'])
         
         
         
