@@ -4,7 +4,7 @@ import pandas as pd
 from train_test import train_test_split
 
 # import other classes
-from Algorthms.NaiveBayes.utils import *
+from Algorithms.NaiveBayes.utils import *
 from Algorithms.NaiveBayes.NB import *
 from Algorithms.XGBoost.utils import *
 from Algorithms.XGBoost.XGB import *
