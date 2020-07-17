@@ -2,6 +2,10 @@ import time
 import numpy as np
 import pandas as pd
 from train_test import train_test_split
+import progressbar
+from collections import Counter
+from pprint import pprint
+from random import random
 #from sklearn.model_selection import train_test_split as tts
 
 
@@ -11,23 +15,17 @@ from Algorithms.NaiveBayes.NB import *
 from Algorithms.XGBoost.utils import *
 from Algorithms.XGBoost.XGB import *
 from Algorithms.XGBoost.DTreeXGB import *
-from Algorithms import *
-import progressbar
 from Algorithms.DecisionTree.decision_tree_functions import decision_tree_algorithm, make_predictions, calculate_accuracy
 from HelperFunctions.helper_functions import generate_data, create_plot, dt_train_test_split
 from Algorithms.Knearestneighbour import KNN,numpy_distance
-from pprint import pprint
-from collections import Counter
-import matplotlib.pyplot as plt 
-from random import random
 from Algorithms.ArtificialNeuralNetwork import MLP
 from Algorithms.LDA.LDA import *
-import randomSearch
+from randomSearch import *
 from Algorithms.DecisionTree import dtreeRandomSearch
 from Algorithms.Nearestcentroidclassification import *
+from Algorithms.LogisticRegression import *
 
-
-
+from Algorithms.Adaboost.AdaboostClassifier import *
 
 
 
