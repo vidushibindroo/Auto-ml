@@ -23,7 +23,7 @@ pip install pandas
 
 ```
 
-from sklearn.data import load_iris
+from sklearn.datasets import load_iris
 iris = load_iris()
 X = iris.data
 y = iris.target
@@ -40,8 +40,10 @@ ml.fit(X, y, test_sz = 0.25)  # Note - type(X) and type(y) should be numpy array
 ml.last_score_card  # To see score_card again
 
 
-ml.get_score_card(name        # saves the score_card as a CSV file
-	= "machine_learning_score_card.csv")
+ml.get_score_card()     
+
+ml.saveScoreCard(name = "machine_learning_score_card.csv")
+ # saves the score_card as a CSV file
 
 ```
 
