@@ -9,14 +9,14 @@ from Algorithms.NaiveBayes.NB import *
 from Algorithms.XGBoost.utils import *
 from Algorithms.XGBoost.XGB import *
 from Algorithms.XGBoost.DTreeXGB import *
-from Algorithms.DecisionTree.decision_tree_functions import decision_tree_algorithm
-from Algorithms.DecisionTree.dtreeRandomSearch import *
+from Algorithms.DecisionTree.utils import *
+from Algorithms.DecisionTree.decision_tree_classification import classification_tree
 from HelperFunctions.helper_functions import dt_train_test_split
 from Algorithms.Knearestneighbour import KNN,numpy_distance
 from Algorithms.ArtificialNeuralNetwork import MLP
 from Algorithms.LDA.LDA import *
 from randomSearch import *
-from Algorithms.DecisionTree import dtreeRandomSearch
+#from Algorithms.DecisionTree import dtreeRandomSearch
 from Algorithms.Nearestcentroidclassification import *
 from Algorithms.LogisticRegression import *
 
@@ -183,7 +183,22 @@ class AutoML():
                          })
         del clf
         
-        
+        #############################################################################
+
+        #Decision Tree
+
+        clf = classification_tree()
+        clf.fit(X_train, y_train)
+        y_pred = clf.predict(X_test)
+        score = accuracy_score(y_test, y_pred)
+
+        scoreCard.append({
+                        'Algorithm': 'Decision Tree',
+                        'Accuracy Score': score,
+                         'Params':{'min_samples_split': 2}
+                         })
+        best_so_far_ = max(best_so_far_, score)
+
         #############################################################################
         
         # dtree
