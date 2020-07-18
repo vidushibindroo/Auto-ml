@@ -19,7 +19,7 @@ Install:
 pip install pandas
 
 ```
-# Core Functionality Example 1
+## Core Functionality Example 1
 
 ```
 
