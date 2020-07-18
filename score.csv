@@ -1,0 +1,7 @@
+,Algorithm,Accuracy Score,Params
+0,Linear Discriminant Analysis,0.9473684210526315,{'projection_dim': 2}
+1,Naive Bayes,0.9473684210526315,-
+2,Logistice Regression,0.3157894736842105,"{'alpha': 0.03, 'n_itr': 1250, 'bias': 0}"
+3,KNN,0.9210526315789473,-
+4,XGBoost,0.9473684210526315,"{'n_estimators': 300, 'learning_rate': 0.001, 'min_samples_split': 1, 'max_depth': 2, 'min_impurity': 1e-07}"
+5,Adaboost,0.5263157894736842,{'n_clf': 2}

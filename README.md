@@ -28,19 +28,19 @@ iris = load_iris()
 X = iris.data
 y = iris.target
 
-from automl import *			# this imports the main automated machine learning interface
+from automl import *  # this imports the main automated machine learning interface
 
 
-ml = AutoML() 					# create a instance of AutoML class
+ml = AutoML() # create a instance of AutoML class
 
 
-ml.fit(X, y, test_sz = 0.25)	# Note - type(X) and type(y) should be numpy array
-								# this returns dataframe score_card
+ml.fit(X, y, test_sz = 0.25)  # Note - type(X) and type(y) should be numpy array
+# this returns dataframe score_card
 
-ml.last_score_card 				# To see score_card again
+ml.last_score_card  # To see score_card again
 
 
-ml.get_score_card(name  		# saves the score_card as a CSV file
+ml.get_score_card(name        # saves the score_card as a CSV file
 	= "machine_learning_score_card.csv")
 
 ```
