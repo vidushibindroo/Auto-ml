@@ -52,9 +52,9 @@ ml.get_score_card(name        # saves the score_card as a CSV file
 </br>
 [Artificial Neural Network](https://github.com/vidushibindroo/Auto-ml/blob/master/Documentation/ANN.md)
 </br>
-[NaiveBayes](https://github.com/vidushibindroo/Auto-ml/blob/master/Documentation/naivebayes_docu.md)
+[Naive Bayes](https://github.com/vidushibindroo/Auto-ml/blob/master/Documentation/naivebayes_docu.md)
 </br>
-[Xgboost](https://github.com/vidushibindroo/Auto-ml/blob/master/Documentation/xgboost_docu.md)
+[XGBoost](https://github.com/vidushibindroo/Auto-ml/blob/master/Documentation/xgboost_docu.md)
 </br>
 [Nearest Centroid Classifier](https://github.com/vidushibindroo/Auto-ml/blob/master/Documentation/Nearest_Centroid_Classifier.md)
 </br>
