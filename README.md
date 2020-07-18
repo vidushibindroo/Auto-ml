@@ -48,7 +48,7 @@ ml.get_score_card(name        # saves the score_card as a CSV file
 
 ### DOCUMENTATION
 
-[Decision Tree](https://github.com/vidushibindroo/Auto-ml/blob/master/Documentation/DecisionTree.md)
+[Decision Tree](https://github.com/vidushibindroo/Auto-ml/blob/master/Documentation/decision_tree_docu.md)
 </br>
 [Artificial Neural Network](https://github.com/vidushibindroo/Auto-ml/blob/master/Documentation/ANN.md)
 </br>
@@ -62,9 +62,11 @@ ml.get_score_card(name        # saves the score_card as a CSV file
 </br>
 [Adaboost Classifier](https://github.com/vidushibindroo/Auto-ml/blob/master/Documentation/Adaboost.md)
 </br>
-[Train_test_split](https://github.com/vidushibindroo/Auto-ml/blob/master/Documentation/train_test_docu.md)
-</br>
 [Linear Discriminant Analysis](https://github.com/vidushibindroo/Auto-ml/blob/master/Documentation/lda.md)
+</br>
+[Train_test_split](https://github.com/vidushibindroo/Auto-ml/blob/master/Documentation/train_test_docu.md)
+
+
 
 
 
