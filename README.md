@@ -41,6 +41,8 @@ pip install pandas
 [Adaboost Classifier](https://github.com/vidushibindroo/Auto-ml/blob/master/Documentation/Adaboost.md)
 </br>
 [Train_test_split](https://github.com/vidushibindroo/Auto-ml/blob/master/Documentation/train_test_docu.md)
+</br>
+[Linear Discriminant Analysis](https://github.com/vidushibindroo/Auto-ml/blob/master/Documentation/lda.md)
 
 
 

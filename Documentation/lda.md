@@ -10,28 +10,34 @@ It contains data_to_dict.
 
 ***Constructor:*** parameter - projection_dim
 
-***fit: *** 
+***fit:*** 
+
 data
+
 targets
+
 valid_classes = None
 
-***gaussian: *** 
+***gaussian:*** 
 X
 
 
-***gaussian_distribution: ***
+***gaussian_distribution:***
 x
+
 u
+
 cov
 
-***predict: ***
+***predict:***
 X
+
 y
 
-***project: ***
+***project:***
 X
 
-***compute_means: ***
+***compute_means:***
 X
 
 

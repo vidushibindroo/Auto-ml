@@ -2,8 +2,6 @@ import time
 import numpy as np
 import pandas as pd
 from train_test import train_test_split
-#from sklearn.model_selection import train_test_split as tts
-
 
 # import other classes
 from Algorithms.NaiveBayes.utils import *
