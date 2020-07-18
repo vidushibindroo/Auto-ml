@@ -156,7 +156,7 @@ class AutoML():
         # logistic Regression
         
         
-        rs=random_search(LogisticRegression,lr_dic)
+        rs=random_search(LogisticRegression,lr_dic, n_iter = 250)
         rs.fit(X_train,y_train,X_test,y_test)
         #scoreCard.append(['Logistic Regression', rs.best_score_, rs.best_params_])
         scoreCard.append({
@@ -172,8 +172,6 @@ class AutoML():
         
         # KNN
         
-
-        
         clf=KNN(X_train, X_test, y_train, y_test)
         score=clf
         best_so_far_=max(best_so_far_,score)
@@ -181,7 +179,7 @@ class AutoML():
         scoreCard.append({
                         'Algorithm': 'KNN',
                         'Accuracy Score': score,
-                         'Params':'-'
+                         'Params': '-'
                          })
         del clf
         
@@ -190,11 +188,16 @@ class AutoML():
         
         # dtree
         
-        #df = pd.concat([pd.DataFrame(X), pd.DataFrame(y)], axis = 1)
+        #df = pd.concat([pd.DataFrame(X), pd.DataFrame(y, columns = ['label'])], axis = 1)
         #train_df, test_df = dt_train_test_split(df, test_size=20)
         #rs = random_search_dtree(decision_tree_algorithm, dtree_dic, n_iter = 8)
         #rs.fit(train_df, test_df)
         #scoreCard.append(['Decision Tree', rs.best_score_, rs.best_params_])
+        #scoreCard.append({
+        #               'Algorithm': 'Decision Tree',
+        #                'Accuracy Score': rs.best_score_,
+        #                 'Params': rs.best_params_
+        #                 })
         #best_so_far_ = max(best_so_far_, rs.best_score_)
         #del df # delete dataframe to clear ram
         
@@ -205,7 +208,7 @@ class AutoML():
         
         
         
-        
+    
         
         #scoreCard.append(['Random Forrest', rs.best_score_, rs.best_params_])
         #best_so_far_ = max(best_so_far_, rs.best_score_)
@@ -290,8 +293,8 @@ class AutoML():
         else:
             for i in scoreCard:
                 score_card = score_card.append(i, ignore_index = True)
-            score_card.sort_values(by=['Accuracy Score'])
-            score_card.reset_index(drop = True)    
+            score_card = score_card.sort_values(by=['Accuracy Score'], ascending=False)
+            score_card = score_card.reset_index(drop = True)    
         self.last_score_card = score_card
         return score_card    
     
