@@ -19,7 +19,7 @@ Install:
 pip install pandas
 
 ```
-# Core Functionality Example
+# Core Functionality Example 1
 
 ```
 
@@ -46,6 +46,25 @@ ml.saveScoreCard(name = "machine_learning_score_card.csv")
  # saves the score_card as a CSV file
 
 ```
+## Example 2
+
+```
+import pandas as pd
+data = pd.read_csv('data/Social_Network_Ads.csv') 
+X = data.values   ## making X as the features or the input parameters                      
+X = X[:,2:4].astype(float)
+
+y = data.values  ## Making Y to contain the output(label) of the data points or features
+y = y[:,-1].astype(float)
+
+#Y = df.values  ## Making Y to contain the output(label) of the data points or features
+#Y = Y[:,-1]
+from automl import AutoML
+ml = AutoML()
+ml.fit(X, y,test_sz = 0.25)
+```
+
+
 
 
 ### DOCUMENTATION
