@@ -20,10 +20,32 @@ pip install pandas
 
 ```
 # Core Functionality Example
-??????? //write the code
-</br>
-</br>
-</br>
+
+```
+
+from sklearn.data import load_iris
+iris = load_iris()
+X = iris.data
+y = iris.target
+
+from automl import *			# this imports the main automated machine learning interface
+
+
+ml = AutoML() 					# create a instance of AutoML class
+
+
+ml.fit(X, y, test_sz = 0.25)	# Note - type(X) and type(y) should be numpy array
+								# this returns dataframe score_card
+
+ml.last_score_card 				# To see score_card again
+
+
+ml.get_score_card(name  		# saves the score_card as a CSV file
+	= "machine_learning_score_card.csv")
+
+```
+
+
 ### DOCUMENTATION
 
 [Decision Tree](https://github.com/vidushibindroo/Auto-ml/blob/master/Documentation/DecisionTree.md)

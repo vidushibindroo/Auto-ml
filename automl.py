@@ -74,9 +74,8 @@ class AutoML():
     
     def __init__(self, problem_type = 'classification'):
         self.problem_type = problem_type
-        
         self.last_score_card = None
-        
+        print("AutoML Instance Initiated")
         
         
         
@@ -88,7 +87,7 @@ class AutoML():
         """
         
         
-        
+        print("---AutoML Running ---\n\n")
         X = features
         y = target_variable
         # X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, seed=seed)
@@ -126,7 +125,6 @@ class AutoML():
             pred = clf.predict(X_test,y_test)
             score = accuracy_score(y_test, pred)
             params = lda_dic
-            #scoreCard.append(['Linear Discriminant Analysis', score, {'projection_dim': 2}])
             scoreCard.append({
                             'Algorithm': 'Linear Discriminant Analysis',
                             'Accuracy Score': score,
@@ -143,7 +141,6 @@ class AutoML():
         clf.fit(X_train, y_train)
         y_pred = clf.predict(X_test)
         score = accuracy_score(y_test, y_pred)
-        # scoreCard.append(['Naive Bayes', score, '-'])
         scoreCard.append({
                         'Algorithm': 'Naive Bayes',
                         'Accuracy Score': score,
@@ -156,9 +153,8 @@ class AutoML():
         # logistic Regression
         
         
-        rs=random_search(LogisticRegression,lr_dic, n_iter = 250)
+        rs=random_search(LogisticRegression,lr_dic, n_iter = 300)
         rs.fit(X_train,y_train,X_test,y_test)
-        #scoreCard.append(['Logistic Regression', rs.best_score_, rs.best_params_])
         scoreCard.append({
                         'Algorithm': 'Logistice Regression',
                         'Accuracy Score': rs.best_score_,
@@ -174,8 +170,7 @@ class AutoML():
         
         clf=KNN(X_train, X_test, y_train, y_test)
         score=clf
-        best_so_far_=max(best_so_far_,score)
-        #scoreCard.append(['KNN', score, '-'])       
+        best_so_far_=max(best_so_far_,score)   
         scoreCard.append({
                         'Algorithm': 'KNN',
                         'Accuracy Score': score,
@@ -206,6 +201,7 @@ class AutoML():
         
         # Random Forrest
         
+
         
         
     
@@ -245,7 +241,7 @@ class AutoML():
         
         # Adaboost
         
-        rs=random_search(Adaboost,adb_dic, n_iter = 5)
+        rs=random_search(Adaboost,adb_dic, n_iter = 7)
         rs.fit(X_train,y_train,X_test, y_test)
         #scoreCard.append(['Adaboost', rs.best_score_, rs.best_params_])
         scoreCard.append({
@@ -257,26 +253,10 @@ class AutoML():
         del rs
 
         #############################################################################
-        # Neural Networks add unwanted complexity for simpler problems hence added in last
-        # ANN
-        
-        #mlp = MLP(2, [5], 1)
-
-        # train network
-        #mlp.train(X_train, y_train, 50, 0.1)
-        #score=mlp.train(X_train, y_train, 50, 0.1)
-        
-        
-        #scoreCard.append(['ANN',score,'-' ])
-        
-        
-        #scoreCard.append(['ANN', , ])
-        
-        #############################################################################
         
         
         score_card = self.get_score_card(scoreCard)
-        #return score_card
+        return score_card
         
     
     def get_score_card(self, scoreCard = None, SortBy = 'Accuracy Score'):
