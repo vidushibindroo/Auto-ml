@@ -167,16 +167,16 @@ class AutoML():
         #############################################################################
         
         # KNN
-            clf=KNN(X_train, X_test, y_train, y_test)
-            score=clf[0]
-            param=clf[1]
-            best_so_far_=max(best_so_far_, score)
-            scoreCard.append({
-                            'Algorithm': 'KNN',
-                            'Accuracy Score': score,
-                             'Params': param
-                             })
-            del clf
+        clf=KNN(X_train, X_test, y_train, y_test)
+        score=clf[0]
+        param=clf[1]
+        best_so_far_=max(best_so_far_, score)
+        scoreCard.append({
+                        'Algorithm': 'KNN',
+                        'Accuracy Score': score,
+                         'Params': param
+                         })
+        del clf
 
 
         #clf=KNN(X_train, X_test, y_train, y_test)
