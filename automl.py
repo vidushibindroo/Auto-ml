@@ -147,6 +147,7 @@ class AutoML():
                          'Params':'-'
                          })
         best_so_far_ = max(best_so_far_, score)
+        del clf
 
         #############################################################################
         
@@ -206,6 +207,8 @@ class AutoML():
                          'Params':{'min_samples_split': 2}
                          })
         best_so_far_ = max(best_so_far_, score)
+        
+        del clf
 
         #############################################################################
         
