@@ -167,17 +167,19 @@ class AutoML():
         #############################################################################
         
         # KNN
-        clf=KNN(X_train, X_test, y_train, y_test)
-        score=clf[0]
-        param=clf[1]
-        best_so_far_=max(best_so_far_, score)
-        scoreCard.append({
-                        'Algorithm': 'KNN',
-                        'Accuracy Score': score,
-                         'Params': param
-                         })
-        del clf
-
+        try:
+            clf=KNN(X_train, X_test, y_train, y_test)
+            score=clf[0]
+            param=clf[1]
+            best_so_far_=max(best_so_far_, score)
+            scoreCard.append({
+                            'Algorithm': 'KNN',
+                            'Accuracy Score': score,
+                             'Params': param
+                             })
+            del clf
+        except:
+            pass
 
         #clf=KNN(X_train, X_test, y_train, y_test)
         #score=clf
@@ -205,24 +207,6 @@ class AutoML():
                          })
         best_so_far_ = max(best_so_far_, score)
 
-        #############################################################################
-        
-        # dtree
-        
-        #df = pd.concat([pd.DataFrame(X), pd.DataFrame(y, columns = ['label'])], axis = 1)
-        #train_df, test_df = dt_train_test_split(df, test_size=20)
-        #rs = random_search_dtree(decision_tree_algorithm, dtree_dic, n_iter = 8)
-        #rs.fit(train_df, test_df)
-        #scoreCard.append(['Decision Tree', rs.best_score_, rs.best_params_])
-        #scoreCard.append({
-        #               'Algorithm': 'Decision Tree',
-        #                'Accuracy Score': rs.best_score_,
-        #                 'Params': rs.best_params_
-        #                 })
-        #best_so_far_ = max(best_so_far_, rs.best_score_)
-        #del df # delete dataframe to clear ram
-        
-        
         #############################################################################
         
         # Random Forrest

@@ -108,8 +108,8 @@ def numpy_distance(x,y):
 ## K is a list [1,2,.....34]
 
 def KNN(X_train, X_test, y_train, y_test):
-    #X_train = pd.DataFrame(X_train)
-    #X_test = pd.DataFrame(X_test)
+    X_train = X_train.astype('float64')
+    X_test = X_test.astype('float64')
     accuracy = {}
     K = np.arange(1,35)
     for k in K:   ## For each value of k we test the model
